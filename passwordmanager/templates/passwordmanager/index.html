@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Password Manager</title>
+  <!-- Stylesheet -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'passwordmanager/index.css' %}" />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'passwordmanager/tools/fontawesome-free-5.14.0-web/css/all.min.css' %}">
+</head>
+<body>
+  
+  <div class="pm">
+    <header>
+      <label>PasswordManager</label>
+      <a href="{% url "pm:login" %}">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </header>
+    
+    <div id="accs">
+      
+      {% if user.account_set.all %}
+        {% for account in user.account_set.all %}
+        <div class="acc">
+          <p>{{ account.title }}</p>
+          <div class="acc-info">
+            <div>
+              <div class="acc-label user">
+                <span>User</span><p>{{ account.username }}</p>
+              </div>
+              <div class="acc-label pass">
+                <span>Pass</span><p>{{ account.password }}</p>
+              </div>
+            </div>
+            <a href="{% url "pm:remove" user.id account.id %}">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="no-acc">No accounts are available.</div>
+      {% endif %}
+      
+    </div>
+    
+    <form id="add-acc" action="{% url 'pm:add' user.id %}" method="post">
+      {% csrf_token %}
+      <div id="acc-field">
+        <div class="label title-label">
+          <label>Title</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="label user-label">
+          <label>User</label>
+          <input type="text" name="user" id="user" />
+        </div>
+        <div class="label pass-label">
+          <label>Pass</label>
+          <input type="password" name="pass" id="pass" />
+        </div>
+      </div>
+      <input type="submit" value="Add" id="add-acc-btn" />
+    </form>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PM Login</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static "passwordmanager/login.css" %}" />
+  {% load static %}
+  <link rel="stylesheet" href="{% static "passwordmanager/tools/fontawesome-free-5.14.0-web/css/all.min.css" %}">
+</head>
+<body>
+  
+  <div class="login">
+    <form action="{% url "pm:validate_login" %}" method="post">
+      {% csrf_token %}
+      <h2>Login</h2>
+      <div id="fields">
+        {% if error_message %}
+        <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+        <p class="label">Username</p>
+        <input type="text" name="username" id="username" />
+        <p class="label">Password</p>
+        <input type="password" name="password" id="password" />
+      </div>
+      <input type="submit" value="Login" />
+      <a href="{% url "pm:register" %}" id="log-in">Don't have an account?</a>
+    </form>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login form {
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 1px 10px #a9a9a9;
+}
+
+.login form h2 {
+  border-radius: 8px 8px 0 0;
+  background: #2f2f2f;
+  color: #ffe412;
+  text-align: center;
+  padding: 15px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+}
+
+#fields {
+  padding: 10px;
+}
+
+.label {
+  padding: 5px;
+  font-weight: 500;
+}
+
+.error-message {
+  background: #eeb6b6;
+  font-size: 13px;
+  border-radius: 5px;
+  text-align: center;
+  color: #2c2c2c;
+  padding: 10px;
+}
+
+#username, #password {
+  width: 230px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #c9c9c9;
+}
+
+#username:focus, #password:focus {
+  border: 2px solid black;
+  outline: none;
+}
+
+.login form input[value='Login'] {
+  display: block;
+  padding: 10px 20px;
+  margin: 0 auto 10px;
+  color: #fff;
+  background: linear-gradient(to bottom, #2ab42b, #188723);
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.login form input[value='Login']:active {
+  outline: none;
+  background: linear-gradient(to bottom, #188723, #2ab42b);
+}
+
+#log-in {
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#log-in:active, #sign-in:hover {
+  color: #6afb61;
+}
