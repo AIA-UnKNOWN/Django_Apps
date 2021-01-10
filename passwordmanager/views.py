@@ -67,7 +67,8 @@ def validate_login(request):
 class IndexView(DetailView):
 	model = User
 	template_name = 'passwordmanager/index.html'
-		
+	# http_method_names = ['post']
+	
 		
 def add_account(request, user_id):
 	title = request.POST['title']

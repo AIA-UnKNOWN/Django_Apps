@@ -4,7 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+  background: #fff;
+}
+
 .register form {
+  background: #fff;
   width: max-content;
   position: absolute;
   top: 50%;
