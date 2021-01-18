@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'todo/index.css' %}" />
+  <title>Index</title>
+</head>
+<body>
+  
+  <header>Todo List App</header>
+  {% if error_message %}<div class="warning">{{ error_message }}</div>{% endif %}
+  {% if tasks %}
+    <ul>
+    {% for task in tasks %}
+      <li>
+        <p>{{ task.task }}</p>
+        <a href="{% url 'todo:delete' task.id %}">Done</a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p class="no-tasks">No tasks available</p>
+  {% endif %}
+  <div class="add-task">
+    <form action="{% url 'todo:add' %}" method="post" accept-charset="utf-8">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="new_task"
+        id="new_task"
+        placeholder="Add new task here..."
+      />
+      <input type="submit" value="Add" />
+    </form>
+  </div>
+  
+  {% load static %}
+  <script src="{% static 'todo/js/script.js' %}"></script>
+</body>
+</html>

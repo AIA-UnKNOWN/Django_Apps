@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial';
+}
+
+header {
+  color: #fff;
+  background: linear-gradient(to bottom, #f67878, #e42c2c);
+  text-align: center;
+  font-weight: bold;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.warning {
+  font-weight: bold;
+  text-align: center;
+  /* background: #e0bdbd; */
+  background: #f87d7d;
+  padding: 10px;
+  color: #fff;
+  margin: 7px 7px 0;
+  border-radius: 5px;
+}
+
+ul {
+  padding: 10px;
+}
+
+li {
+  background: #fff;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  box-shadow: 0 0 2px black;
+}
+
+li p, li a {
+  padding: 10px;
+}
+
+li p {
+  font-weight: 500;
+}
+
+li a {
+  text-decoration: none;
+  background: #f67878;
+  color: #fff;
+  font-weight: bold;
+}
+
+p.no-tasks {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-task {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #d5d5d5;
+  box-shadow: 0 0 2px black;
+  width: 100%;
+}
+
+.add-task form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+
+.add-task form input {
+  padding: 10px;
+}
+
+#new_task {
+  width: 100%;
+  letter-spacing: 1px;
+  margin-right: 3px;
+}
+
+.add-task form input[type='submit'] {
+  padding: 10px 15px;
+  background: linear-gradient(to bottom, #f67878, #e42c2c);
+  border: none;
+  color: #fff;
+}

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
 	'passwordmanager.apps.PasswordmanagerConfig',
+	'quiz.apps.QuizConfig',
+	'todo.apps.TodoConfig',
 ]
 
 MIDDLEWARE = [
